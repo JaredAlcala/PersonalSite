@@ -1,0 +1,93 @@
+﻿@model PersonalSite.Models.ContactViewModel
+
+@{
+    ViewData["Title"] = "Contact";
+}
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="contact section-show">
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Contact</h2>
+            <p>Contact Me</p>
+        </div>
+
+        <div class="row mt-2">
+
+            <div class="col-md-6 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-map"></i>
+                    <h3>My Address</h3>
+                    <p>O'Fallon, IL.</p>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-share-alt"></i>
+                    <h3>Social Profiles</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/JaredAlcala" target="_blank" class="instagram"><i class="bi bi-github"></i></a>
+                        <a href="https://www.linkedin.com/in/jared-alcala-667806260/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-envelope"></i>
+                    <h3>Email Me</h3>
+                    <p>jared.alcala44@outlook.com</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 d-flex align-items-stretch">
+                <div class="info-box">
+                    <i class="bx bx-phone-call"></i>
+                    <h3>Call Me</h3>
+                    <p>Email For Phone Number</p>
+                </div>
+            </div>
+        </div>
+
+        <form asp-action="Contact" class="php-email-form mt-4">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <input asp-for="Name" name="name" id="name" placeholder="Your Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input asp-for="Email" name="email" id="email" placeholder="Your Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group mt-3">
+                <input asp-for="Subject" name="subject" id="subject" placeholder="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <textarea asp-for="Message" name="message" rows="5" placeholder="Message" class="form-control"></textarea>
+                <span asp-validation-for="Message" class="text-danger"></span>
+            </div>
+            @*<div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+            </div>*@
+            <div class="text-center"><button type="submit">Send Message</button></div>
+        </form>
+
+       
+
+
+
+
+    </div>
+</section><!-- End Contact Section -->
+        @section Scripts {
+            <script>
+                $('#header').addClass('header-top');
+            </script>
+            @{
+                await Html.RenderPartialAsync("_ValidationScriptsPartial");
+            }
+        }
